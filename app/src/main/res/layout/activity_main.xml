@@ -8,7 +8,6 @@
     tools:context=".MainActivity">
 
 
-
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="48dp"
@@ -91,7 +90,7 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <TextView
-        android:id="@+id/liked_"
+        android:id="@+id/liked_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -110,10 +109,10 @@
         android:background="@android:color/transparent"
         android:src="@drawable/ic_share_24"
         app:layout_constraintTop_toBottomOf="@id/barrier1"
-        app:layout_constraintStart_toEndOf="@id/liked_"/>
+        app:layout_constraintStart_toEndOf="@id/liked_number"/>
 
     <TextView
-        android:id="@+id/share_"
+        android:id="@+id/share_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -125,7 +124,7 @@
         tools:text="@sample/posts.json/data/share"/>
 
     <TextView
-        android:id="@+id/views_"
+        android:id="@+id/views_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -142,7 +141,7 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_views_24"
-        app:layout_constraintEnd_toStartOf="@id/views_"
+        app:layout_constraintEnd_toStartOf="@id/views_number"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
