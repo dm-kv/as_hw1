@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
 
-    
+
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="48dp"
@@ -142,10 +142,8 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_views_24"
-        app:layout_constraintBottom_toTopOf="@id/views"
         app:layout_constraintEnd_toStartOf="@id/views_"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/share"
         app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
 
