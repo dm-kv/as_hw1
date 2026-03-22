@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likeCount.text = post.likes.toString()
+            likeCount.text = checkTheDigit(post.likes)
             if (post.likedByMe) {
                 like.setImageResource((R.drawable.ic_liked_24))
             }
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 likeCount.text = checkTheDigit(post.likes)
                 println("like")
             }
-            shareCount.text = post.shares.toString()
+            shareCount.text = checkTheDigit(post.shares)
             share.setOnClickListener {
                 post.shares++
                 shareCount.text = checkTheDigit(post.shares)
