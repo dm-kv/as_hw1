@@ -59,6 +59,9 @@ class MainActivity : AppCompatActivity() {
             root.setOnClickListener {
                 println("root")
             }
+            avatar.setOnClickListener {
+                println("avatar")
+            }
         }
     }
 }
