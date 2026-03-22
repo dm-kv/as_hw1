@@ -56,12 +56,6 @@ class MainActivity : AppCompatActivity() {
                 post.shares++
                 shareCount.text = checkTheDigit(post.shares)
             }
-            root.setOnClickListener {
-                println("root")
-            }
-            avatar.setOnClickListener {
-                println("avatar")
-            }
         }
     }
 }
