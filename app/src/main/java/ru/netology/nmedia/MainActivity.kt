@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
             return d.toString().format("%1f", d) + "M"
         } else return digit.toString()
     }
-    
+
     fun checkTheDigit(digit: Int, d: Double = digit.toDouble()) = when(digit) {
         in 0..999 -> digit.toString()
-        in 1000..9999 -> (d / 1000).toString().format("%1f", d) + "K"
+        in 1000..9999 -> (d / 1000).toString() + "K"
         in 10000..999999 -> (d / 1000).toString() + "K"
-        else -> (d / 1000000).toString().format("%1f", d) + "M"
+        else -> (d / 1000000).toString() + "M"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
