@@ -11,6 +11,26 @@ import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
 
 class MainActivity : AppCompatActivity() {
+    fun checkTheDigit1(digit: Int): String {
+        if (digit in 1000..9999) {
+            val d = digit.toDouble() / 1000
+            return d.toString().format("%1f", d) + "K"
+        } else if (digit in 10000..999999) {
+            val d = digit.toDouble() / 1000
+            return d.toString() + "K"
+        } else if (digit >= 1000000) {
+            val d = digit.toDouble() / 1000000
+            return d.toString().format("%1f", d) + "M"
+        } else return digit.toString()
+    }
+    
+    fun checkTheDigit(digit: Int, d: Double = digit.toDouble()) = when(digit) {
+        in 0..999 -> digit.toString()
+        in 1000..9999 -> (d / 1000).toString().format("%1f", d) + "K"
+        in 10000..999999 -> (d / 1000).toString() + "K"
+        else -> (d / 1000000).toString().format("%1f", d) + "M"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -39,17 +59,13 @@ class MainActivity : AppCompatActivity() {
                 if (post.likedByMe) post.likes-- else post.likes++
                 post.likedByMe = !post.likedByMe
                 like.setImageResource(if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24)
-                likeCount.text = post.likes.toString()
+                likeCount.text = checkTheDigit(post.likes)
             }
-
             shareCount.text = post.shares.toString()
             share.setOnClickListener {
                 post.shares++
-                shareCount.text = post.shares.toString()
+                shareCount.text = checkTheDigit(post.shares)
             }
-
-
-
         }
     }
 }
