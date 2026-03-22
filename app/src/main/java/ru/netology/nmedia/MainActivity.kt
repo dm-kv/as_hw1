@@ -9,14 +9,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
+import java.math.RoundingMode
 
 class MainActivity : AppCompatActivity() {
 
     fun checkTheDigit(digit: Int,) = when(digit) {
         in 0..999 -> digit.toString()
-        in 1000..9999 -> "%.1f".format(digit.toDouble() / 1000) + "K"
+        in 1000..9999 -> (digit.toDouble() / 1000).toBigDecimal().setScale(1, RoundingMode.DOWN).toString() + "K"
         in 10000..999999 -> (digit / 1000).toString() + "K"
-        else -> "%.1f".format(digit.toDouble() / 1000000) + "M"
+        else -> (digit.toDouble() / 1000000).toBigDecimal().setScale(1, RoundingMode.DOWN).toString() + "M"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,11 +49,15 @@ class MainActivity : AppCompatActivity() {
                 post.likedByMe = !post.likedByMe
                 like.setImageResource(if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24)
                 likeCount.text = checkTheDigit(post.likes)
+                println("like")
             }
             shareCount.text = post.shares.toString()
             share.setOnClickListener {
                 post.shares++
                 shareCount.text = checkTheDigit(post.shares)
+            }
+            root.setOnClickListener {
+                println("root")
             }
         }
     }
