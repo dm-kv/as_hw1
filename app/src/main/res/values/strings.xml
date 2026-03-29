@@ -3,4 +3,10 @@
     <string name="app_name">Nmedia</string>
     <string name="nmedia">NMedia!</string>
     <string name="description_post_author_avatar">Post author avatar</string>
+    <string name="remove_menu"><![CDATA[Remove/> </menu>]]></string>
+    <string name="post_input_hint">Post content</string>
+    <string name="content_is_blank_error">Content is blank!</string>
+    <string name="edit_menu" />
+    <string name="remove">Remove</string>
+    <string name="edit">Edit</string>
 </resources>

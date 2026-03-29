@@ -35,6 +35,8 @@ class PostRepositoryInMemoryImpl: PostRepository {
             likedByMe = false
         )
     )
+
+    private var nextId = posts.first().id
     private val data = MutableLiveData(posts)
 
     override fun get(): LiveData<List<Post>> = data
@@ -51,4 +53,25 @@ class PostRepositoryInMemoryImpl: PostRepository {
         }
         data.value = posts
     }
+
+    override fun removeById(id: Long) {
+        posts = posts.filter { it.id != id }
+        data.value = posts
+    }
+
+    override fun save(post: Post) {
+        posts = if (post.id == 0L) {
+            listOf(post.copy(id = ++nextId, author = "DK", published = "29.03.26")) + posts
+        } else {
+            posts.map {
+                if (it.id == post.id) {
+                    it.copy(content = post.content)
+                } else {
+                    it
+                }
+            }
+        }
+        data.value = posts
+    }
+
 }
