@@ -64,11 +64,15 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            binding.cancel.setOnClickListener {
-                return@setOnClickListener
-            }
 
             viewModel.saveContent(content)
+            binding.content.setText("")
+            binding.content.clearFocus()
+
+            AndroidUtils.hideKeyboard(binding.content)
+        }
+
+        binding.cancel.setOnClickListener {
             binding.content.setText("")
             binding.content.clearFocus()
 
