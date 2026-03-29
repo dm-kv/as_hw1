@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             binding.cancel.setOnClickListener {
-                AndroidUtils.hideKeyboard(binding.content)
+                return@setOnClickListener
             }
 
             viewModel.saveContent(content)
