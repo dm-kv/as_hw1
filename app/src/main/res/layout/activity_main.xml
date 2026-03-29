@@ -52,7 +52,6 @@
         android:id="@+id/content"
         android:background="@android:color/transparent"
         android:inputType="textImeMultiLine"
-        android:hint="@string/post_input_hint"
         android:padding="@dimen/common_spacing"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
