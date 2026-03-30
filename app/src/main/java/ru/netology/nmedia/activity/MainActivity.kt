@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     setText("")
                     append(edited.content)
                     binding.group.visibility = View.VISIBLE
-                    binding.cancelEdit.text = findViewById(R.id.cancel_edit)
+                    binding.cancelEdit.text = "Message editor"
                 }
             } else {
                 binding.group.visibility = View.GONE
@@ -92,14 +92,14 @@ class MainActivity : AppCompatActivity() {
             binding.content.setText("")
             binding.content.clearFocus()
             AndroidUtils.hideKeyboard(binding.content)
+        }
 
-            viewModel.edited.observe(this) { edited ->
-                if (edited.id != 0L) {
-                    with (binding.content) {
-                        AndroidUtils.showKeyboard(this)
-                        setText("")
-                        append(edited.content)
-                    }
+        viewModel.edited.observe(this) { edited ->
+            if (edited.id != 0L) {
+                with (binding.content) {
+                    AndroidUtils.showKeyboard(this)
+                    setText("")
+                    append(edited.content)
                 }
             }
         }
