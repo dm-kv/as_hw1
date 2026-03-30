@@ -67,7 +67,6 @@ class PostViewHolder(
                             }
                             R.id.edit -> {
                                 listener.onEdit(post)
-                                R.id.group = View.VISIBLE
                                 true
                             }
                             else -> false
