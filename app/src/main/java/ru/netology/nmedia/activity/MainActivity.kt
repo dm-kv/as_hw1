@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        
         binding.cancel.setOnClickListener {
             binding.content.setText("")
             binding.content.clearFocus()
