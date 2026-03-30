@@ -74,12 +74,6 @@ class MainActivity : AppCompatActivity() {
             AndroidUtils.hideKeyboard(binding.content)
         }
 
-        binding.cancel.setOnClickListener {
-            binding.content.setText("")
-            binding.content.clearFocus()
-            AndroidUtils.hideKeyboard(binding.content)
-        }
-
         viewModel.edited.observe(this) { edited ->
             if (edited.id != 0L) {
                 with (binding.content) {
@@ -92,6 +86,13 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.group.visibility = View.GONE
             }
+        }
+
+        binding.cancel.setOnClickListener {
+            binding.content.setText("")
+            binding.content.clearFocus()
+            AndroidUtils.hideKeyboard(binding.content)
+            binding.group.visibility = View.GONE
         }
     }
 }
