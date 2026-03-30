@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.save.setOnClickListener {
-            val content : String = binding.content.text?.toString().orEmpty()
+            val content = binding.content.text?.toString().orEmpty()
             if (content.isBlank()) {
                 Toast.makeText(
                     this,
@@ -72,15 +72,7 @@ class MainActivity : AppCompatActivity() {
             AndroidUtils.hideKeyboard(binding.content)
         }
 
-        binding.cancel.setOnClickListener {
-            binding.content.setText("")
-            binding.content.clearFocus()
-            AndroidUtils.hideKeyboard(binding.content)
-
-        }
-
-
-
+        
         viewModel.edited.observe(this) { edited ->
             if (edited.id != 0L) {
                 with (binding.content) {

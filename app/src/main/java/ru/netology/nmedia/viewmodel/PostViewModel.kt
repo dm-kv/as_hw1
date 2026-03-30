@@ -19,9 +19,9 @@ class PostViewModel: ViewModel() {
 
     fun saveContent(content: String) {
         edited.value?.let { post ->
-            val trimmed : String = content.trim()
+            val trimmed = content.trim()
 
-            if (post.content == trimmed) {
+            if (post.content != trimmed) {
                 repository.save(
                     post.copy(content = trimmed)
                 )
