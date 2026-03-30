@@ -74,20 +74,6 @@ class MainActivity : AppCompatActivity() {
             AndroidUtils.hideKeyboard(binding.content)
         }
 
-        viewModel.edited.observe(this) { edited ->
-            if (edited.id != 0L) {
-                with (binding.content) {
-                    AndroidUtils.showKeyboard(this)
-                    setText("")
-                    append(edited.content)
-                    binding.group.visibility = View.VISIBLE
-                    binding.cancelEdit.text = "Message editor"
-                }
-            } else {
-                binding.group.visibility = View.GONE
-            }
-        }
-
         binding.cancel.setOnClickListener {
             binding.content.setText("")
             binding.content.clearFocus()
@@ -100,7 +86,11 @@ class MainActivity : AppCompatActivity() {
                     AndroidUtils.showKeyboard(this)
                     setText("")
                     append(edited.content)
+                    binding.group.visibility = View.VISIBLE
+                    binding.cancelEdit.text = "Message editor"
                 }
+            } else {
+                binding.group.visibility = View.GONE
             }
         }
     }
