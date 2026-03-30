@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity() {
                     AndroidUtils.showKeyboard(this)
                     setText("")
                     append(edited.content)
-                    R.id.group = View.VISIBLE
                     binding.group.visibility = View.VISIBLE
                     binding.cancelEdit.text = "Message editor"
                 }
