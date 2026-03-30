@@ -12,13 +12,39 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/content"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/card_post" />
+
+
+
+    <TextView
+        android:id="@+id/cancel_edit"
+        android:background="@android:color/transparent"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:padding="@dimen/common_spacing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/content"
+        tools:text="Message editor"/>
+
+    <ImageView
+        android:id="@+id/cancel"
+        android:padding="@dimen/common_spacing"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/outline_cancel_24"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 
     <EditText
