@@ -2,13 +2,14 @@ package ru.netology.nmedia.activity
 
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.AndroidViewModel
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostListener
 import ru.netology.nmedia.adapter.PostsAdapter
@@ -17,7 +18,9 @@ import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.utils.AndroidUtils
 import ru.netology.nmedia.viewmodel.PostViewModel
 
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -80,10 +83,11 @@ class MainActivity : AppCompatActivity() {
                     setText("")
                     append(edited.content)
                     R.id.group = View.VISIBLE
-
+                    binding.group.visibility = View.VISIBLE
+                    binding.cancelEdit.text = "Message editor"
                 }
             } else {
-                R.id.group = View.GONE
+                binding.group.visibility = View.GONE
             }
         }
 
