@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -66,6 +67,7 @@ class PostViewHolder(
                             }
                             R.id.edit -> {
                                 listener.onEdit(post)
+                                R.id.group = View.VISIBLE
                                 true
                             }
                             else -> false

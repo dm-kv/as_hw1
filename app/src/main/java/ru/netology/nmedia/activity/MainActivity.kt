@@ -1,12 +1,14 @@
 package ru.netology.nmedia.activity
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.AndroidViewModel
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostListener
 import ru.netology.nmedia.adapter.PostsAdapter
@@ -64,14 +66,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
             viewModel.saveContent(content)
             binding.content.setText("")
             binding.content.clearFocus()
 
             AndroidUtils.hideKeyboard(binding.content)
         }
-
 
         viewModel.edited.observe(this) { edited ->
             if (edited.id != 0L) {
