@@ -2,12 +2,10 @@ package ru.netology.nmedia.activity
 
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ru.netology.nmedia.R
@@ -83,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     setText("")
                     append(edited.content)
                     binding.group.visibility = View.VISIBLE
-                    binding.cancelEdit.text = "Message editor"
+                    binding.cancelEdit.text = findViewById(R.id.cancel_edit)
                 }
             } else {
                 binding.group.visibility = View.GONE
@@ -94,6 +92,16 @@ class MainActivity : AppCompatActivity() {
             binding.content.setText("")
             binding.content.clearFocus()
             AndroidUtils.hideKeyboard(binding.content)
+
+            viewModel.edited.observe(this) { edited ->
+                if (edited.id != 0L) {
+                    with (binding.content) {
+                        AndroidUtils.showKeyboard(this)
+                        setText("")
+                        append(edited.content)
+                    }
+                }
+            }
         }
     }
 }
