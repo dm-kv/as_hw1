@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 binding.group.visibility = View.GONE
+                
             }
         }
     }
