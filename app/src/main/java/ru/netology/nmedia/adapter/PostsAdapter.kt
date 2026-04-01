@@ -1,7 +1,6 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -51,9 +50,11 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            like.setImageResource(if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24)
-            likeCount.text = checkTheDigit(post.likes)
-            shareCount.text = checkTheDigit(post.shares)
+            like.isChecked = post.likedByMe
+            like.text = post.likes.toString()
+            share.text = post.shares.toString()
+
+
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
