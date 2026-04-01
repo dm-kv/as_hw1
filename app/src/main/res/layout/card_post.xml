@@ -53,7 +53,6 @@
         android:insetTop="0dp"
         android:minHeight="0dp"
         android:minWidth="0dp"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -110,6 +109,7 @@
         android:insetBottom="0dp"
         android:minWidth="0dp"
         android:minHeight="0dp"
+        android:checkable="true"
         app:icon="@drawable/ic_share_24"
         app:layout_constraintStart_toEndOf="@+id/like"
         app:layout_constraintTop_toBottomOf="@id/content"
