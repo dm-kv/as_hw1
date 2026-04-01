@@ -1,7 +1,9 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,8 +12,12 @@ import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import java.math.RoundingMode
 
-typealias LikeListener = (Post) -> Unit
-typealias ShareListener = (Post) -> Unit
+interface PostListener {
+    fun onEdit(post: Post)
+    fun onRemove(post: Post)
+    fun onLike(post: Post)
+    fun onShare(post: Post)
+}
 
 fun checkTheDigit(digit: Int,) = when(digit) {
     in 0..999 -> digit.toString()
@@ -20,13 +26,14 @@ fun checkTheDigit(digit: Int,) = when(digit) {
     else -> (digit.toDouble() / 1000000).toBigDecimal().setScale(1, RoundingMode.DOWN).toString() + "M"
 }
 
-class PostsAdapter(private val likeListener: LikeListener, private val shareListener: ShareListener): ListAdapter<Post, PostViewHolder>(
-    PostDiffCallback
-) {
+class PostsAdapter(
+    private val listener: PostListener,
+    ): ListAdapter<Post, PostViewHolder>(PostDiffCallback)
+{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PostViewHolder(binding, likeListener, shareListener)
+        return PostViewHolder(binding,listener,)
     }
 
     override fun onBindViewHolder(viewHolder: PostViewHolder, position: Int) {
@@ -35,7 +42,10 @@ class PostsAdapter(private val likeListener: LikeListener, private val shareList
     }
 }
 
-class PostViewHolder(private val binding: CardPostBinding, private val likeListener: LikeListener, private val shareListener: ShareListener): RecyclerView.ViewHolder(binding.root) {
+class PostViewHolder(
+    private val binding: CardPostBinding,
+    private val listener: PostListener,
+    ): RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         with (binding) {
             author.text = post.author
@@ -45,11 +55,31 @@ class PostViewHolder(private val binding: CardPostBinding, private val likeListe
             likeCount.text = checkTheDigit(post.likes)
             shareCount.text = checkTheDigit(post.shares)
 
+            menu.setOnClickListener {
+                PopupMenu(it.context, it).apply {
+                    inflate(R.menu.menu_post)
+
+                    setOnMenuItemClickListener { item ->
+                        when (item.itemId) {
+                            R.id.remove -> {
+                                listener.onRemove(post)
+                                true
+                            }
+                            R.id.edit -> {
+                                listener.onEdit(post)
+                                true
+                            }
+                            else -> false
+                        }
+                    }
+                    show()
+                }
+            }
             like.setOnClickListener {
-                likeListener(post)
+                listener.onLike(post)
             }
             share.setOnClickListener {
-                shareListener(post)
+                listener.onShare(post)
             }
         }
     }
