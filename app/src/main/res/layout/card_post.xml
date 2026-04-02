@@ -55,6 +55,7 @@
         android:minWidth="0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checkable="true"
         android:contentDescription="@string/description_post_author_avatar"
         app:icon="@drawable/ic_more_vert_24"
         app:layout_constraintEnd_toEndOf="parent"
