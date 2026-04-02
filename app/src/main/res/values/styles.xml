@@ -9,8 +9,8 @@
         <item name="buttonTint">@color/like_color_selector</item>
     </style>
 
-    <style name="Widget.AppTheme.MenuButton" parent="Widget.Material3.Button.IconButton">
-        <item name="buttonTint">@color/like_color_selector</item>
+    <style name="Widget.AppTheme.IconButton" parent="Widget.Material3.Button.IconButton">
+        <item name="buttonTint">?attr/colorControlNormal</item>
     </style>
 
 </resources>
