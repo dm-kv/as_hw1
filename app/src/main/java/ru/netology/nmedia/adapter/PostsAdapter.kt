@@ -51,10 +51,8 @@ class PostViewHolder(
             published.text = post.published
             content.text = post.content
             like.isChecked = post.likedByMe
-            like.text = post.likes.toString()
-
-            share.text = post.shares.toString()
-
+            like.text = checkTheDigit(post.likes)
+            share.text = checkTheDigit(post.shares)
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
