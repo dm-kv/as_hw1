@@ -10,7 +10,7 @@
     </style>
 
     <style name="Widget.AppTheme.IconButton" parent="Widget.Material3.Button.TextButton.Icon">
-        <item name="buttonTint">?attr/colorControlNormal</item>
+        <item name="buttonTint">@color/share_color_selector</item>
     </style>
 
 </resources>
