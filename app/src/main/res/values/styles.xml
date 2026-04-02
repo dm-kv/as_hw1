@@ -9,10 +9,6 @@
         <item name="buttonTint">@color/like_color_selector</item>
     </style>
 
-    <style name="Widget.AppTheme.ShareButton" parent="Widget.Material3.Button.TextButton.Icon">
-        <item name="buttonTint">@color/share_button_selector</item>
-    </style>
-
     <style name="Widget.AppTheme.MenuButton" parent="Widget.Material3.Button.IconButton">
         <item name="buttonTint">@color/like_color_selector</item>
     </style>
