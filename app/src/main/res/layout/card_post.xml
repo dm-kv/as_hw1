@@ -113,19 +113,28 @@
         tools:text="20" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/views"
-        style="@style/Widget.AppTheme.IconButton"
+    <TextView
+        android:id="@+id/views_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:icon="@drawable/ic_views_24"
-        android:insetBottom="0dp"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:checkable="true"
+        android:layout_marginEnd="8dp"
+        android:padding="16dp"
+        android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content"
-        tools:text="20" /> />
+        tools:text="0" />
+
+
+    <ImageButton
+        android:id="@+id/views"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_views_24"
+        app:layout_constraintEnd_toStartOf="@id/views_number"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@id/content" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
