@@ -10,4 +10,7 @@
     <string name="remove">Remove</string>
     <string name="edit">Edit</string>
     <string name="like">Like</string>
+    <string name="description_post_share" />
+    <string name="error_empty_content" />
+    <string name="description_post_save" />
 </resources>
