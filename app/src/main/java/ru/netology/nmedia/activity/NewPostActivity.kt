@@ -29,7 +29,7 @@ class NewPostActivity : AppCompatActivity() {
             if (text.isBlank()) {
                 setResult(Activity.RESULT_CANCELED)
             } else {
-                val intent = Intent().putExtra(NewPostContract.KEY_TEXT, text)
+                val intent = Intent().putExtra(Intent.EXTRA_TEXT, text)
                 setResult(Activity.RESULT_OK, intent)
             }
             finish()
@@ -37,7 +37,6 @@ class NewPostActivity : AppCompatActivity() {
     }
 }
 object NewPostContract: ActivityResultContract<Unit, String?>() {
-    const val KEY_TEXT = "post_text"
 
     override fun createIntent(
         context: Context,
@@ -47,7 +46,7 @@ object NewPostContract: ActivityResultContract<Unit, String?>() {
     override fun parseResult(
         resultCode: Int,
         intent: Intent?
-    ) = intent?.getStringExtra(KEY_TEXT)
+    ) = intent?.getStringExtra(Intent.EXTRA_TEXT)
 }
 
 object EditPostContract : ActivityResultContract<String, String?>() {
