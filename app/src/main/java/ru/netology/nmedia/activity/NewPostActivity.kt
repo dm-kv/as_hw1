@@ -52,6 +52,7 @@ object NewPostContract: ActivityResultContract<Unit, String?>() {
 
 object EditPostContract : ActivityResultContract<String, String?>() {
 
+
     override fun createIntent(
         context: Context,
         input: String
