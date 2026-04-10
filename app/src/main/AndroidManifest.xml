@@ -16,15 +16,17 @@
             android:exported="false" />
         <activity
             android:name=".activity.intentHandlerActivity"
-            android:exported="true" />
+            android:exported="true">
 
-        <intent-filter>
-            <action android:name="android.intent.action.SEND" />
+            <intent-filter>
+                 <action android:name="android.intent.action.SEND" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                 <category android:name="android.intent.category.DEFAULT" />
 
-            <data android:mimeType="text/plain" />
-        </intent-filter>
+                 <data android:mimeType="text/plain" />
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name=".activity.MainActivity"
