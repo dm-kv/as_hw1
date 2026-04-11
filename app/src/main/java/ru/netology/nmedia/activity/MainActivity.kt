@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         val editPostLauncher = registerForActivityResult(EditPostContract) { text ->
             text?.let {
                 viewModel.saveContent(it)
+                viewModel.writeContent()
             }
         }
 

@@ -30,6 +30,13 @@ class PostViewModel: ViewModel() {
         }
     }
 
+    fun writeContent() {
+        edited.value?.let {
+            repository.save(it)
+            edited.value = empty
+        }
+    }
+
     fun edit(post: Post) {
         edited.value = post
     }
