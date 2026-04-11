@@ -46,7 +46,12 @@ object NewPostContract: ActivityResultContract<Unit, String?>() {
     override fun parseResult(
         resultCode: Int,
         intent: Intent?
-    ) = intent?.getStringExtra(Intent.EXTRA_TEXT)
+    ) =
+        if (resultCode == Activity.RESULT_OK) {
+        intent?.getStringExtra(Intent.EXTRA_TEXT)
+        } else {
+            null
+        }
 }
 
 object EditPostContract : ActivityResultContract<String?, String?>() {
