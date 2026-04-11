@@ -41,14 +41,10 @@ class MainActivity : AppCompatActivity() {
             val result = it ?: return@registerForActivityResult
             viewModel.saveContent(result)
         }
+
         val adapter = PostsAdapter(
             object : PostListener {
                 override fun onEdit(post: Post) {
-                    val intent = Intent().apply {
-                        action = Intent.ACTION_SEND
-                        type = "text/plain"
-                        putExtra(Intent.EXTRA_TEXT, post.content)
-                    }
                     viewModel.edit(post)
                     editPostLauncher.launch(post.content)
                 }
