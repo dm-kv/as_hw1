@@ -55,7 +55,7 @@ object EditPostContract : ActivityResultContract<String?, String?>() {
         context: Context,
         input: String?
     ) = Intent(context, NewPostActivity::class.java).apply {
-            putExtra(Intent.EXTRA_TEXT, "566")
+            putExtra(Intent.EXTRA_TEXT, input)
         }
     
     override fun parseResult(
