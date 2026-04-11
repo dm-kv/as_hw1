@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val editPostLauncher = registerForActivityResult(EditPostContract) { text ->
             text?.let {
                 viewModel.saveContent(it)
-                viewModel.writeContent()
+
             }
         }
 
@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         val adapter = PostsAdapter(
             object : PostListener {
                 override fun onEdit(post: Post) {
+                    val intent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT, post.content)
+                    }
                     viewModel.edit(post)
                     editPostLauncher.launch(post.content)
                 }
