@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityNewPostBinding
 import androidx.activity.result.contract.ActivityResultContract
+import com.google.ai.client.generativeai.type.content
 
 class NewPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,9 @@ class NewPostActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val contents = intent.getStringExtra(Intent.EXTRA_TEXT)
+        binding.edit.setText(contents)
 
         binding.ok.setOnClickListener {
             val text = binding.edit.text.toString()

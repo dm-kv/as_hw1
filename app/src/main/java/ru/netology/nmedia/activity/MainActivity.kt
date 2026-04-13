@@ -14,6 +14,8 @@ import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
 import android.content.Intent
 import  androidx.activity.result.launch
+import android.net.Uri
+import androidx.core.net.toUri
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,6 +66,11 @@ class MainActivity : AppCompatActivity() {
                     }
                     val chooser = Intent.createChooser(intent, getString(R.string.description_post_share))
                     startActivity(chooser)
+                }
+
+                override fun onVideo(post: Post) {
+                    val intentVideo = Intent(Intent.ACTION_VIEW, post.video?.toUri())
+                    startActivity(intentVideo)
                 }
             }
         )

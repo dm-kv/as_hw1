@@ -81,6 +81,40 @@
         tools:text="@sample/posts.json/data/content"/>
 
 
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/play_video_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="background_video, play" />
+
+    <ImageButton
+        android:id="@+id/background_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/description_background_video"
+        android:src="@drawable/background_video"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_play"
+        android:src="@drawable/ic_baseline_play_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@id/background_video"
+        app:layout_constraintEnd_toEndOf="@id/background_video"
+        app:layout_constraintStart_toStartOf="@id/background_video"
+        app:layout_constraintTop_toTopOf="@id/background_video"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/like"
         style="@style/Widget.AppTheme.LikeButton"
@@ -94,7 +128,7 @@
         app:iconTint="@color/like_color_selector"
         app:icon="@drawable/ic_like_selector"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintTop_toBottomOf="@id/background_video"
         tools:text="10"/>
 
 
@@ -110,7 +144,7 @@
         android:checkable="true"
         app:icon="@drawable/ic_share_24"
         app:layout_constraintStart_toEndOf="@+id/like"
-        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintTop_toBottomOf="@id/background_video"
         tools:text="20" />
 
 
@@ -126,7 +160,7 @@
         android:checkable="true"
         app:icon="@drawable/ic_views_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintTop_toBottomOf="@id/background_video"
         tools:text="20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

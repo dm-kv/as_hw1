@@ -14,6 +14,7 @@ class PostRepositoryInMemoryImpl: PostRepository {
             published = "1 марта в 18:32",
             likes = 30,
             shares = 30,
+            video = null,
             likedByMe = false
         ),
         Post(
@@ -23,6 +24,7 @@ class PostRepositoryInMemoryImpl: PostRepository {
             published = "18 сентября в 10:12",
             likes = 20,
             shares = 20,
+            video = null,
             likedByMe = false
         ),
         Post(
@@ -32,6 +34,7 @@ class PostRepositoryInMemoryImpl: PostRepository {
             published = "21 мая в 18:36",
             likes = 10,
             shares = 10,
+            video = "https://rutube.ru/video/6550a91e7e523f9503bed47e4c46d0cb",
             likedByMe = false
         )
     )

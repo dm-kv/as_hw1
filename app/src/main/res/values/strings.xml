@@ -13,4 +13,6 @@
     <string name="description_post_share" />
     <string name="error_empty_content" />
     <string name="description_post_save" />
+    <string name="description_background_video" />
+    <string name="description_play" />
 </resources>

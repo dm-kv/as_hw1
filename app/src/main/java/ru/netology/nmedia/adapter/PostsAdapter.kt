@@ -10,12 +10,14 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import java.math.RoundingMode
+import android.view.View
 
 interface PostListener {
     fun onEdit(post: Post)
     fun onRemove(post: Post)
     fun onLike(post: Post)
     fun onShare(post: Post)
+    fun onVideo(post: Post)
 }
 
 fun checkTheDigit(digit: Int,) = when(digit) {
@@ -54,6 +56,12 @@ class PostViewHolder(
             like.text = checkTheDigit(post.likes)
             share.text = checkTheDigit(post.shares)
 
+            if (post.video == null) {
+                binding.playVideoGroup.visibility = View.GONE
+            } else {
+                binding.playVideoGroup.visibility = View.VISIBLE
+            }
+
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.menu_post)
@@ -79,6 +87,12 @@ class PostViewHolder(
             }
             share.setOnClickListener {
                 listener.onShare(post)
+            }
+            play.setOnClickListener {
+                listener.onVideo(post)
+            }
+            backgroundVideo.setOnClickListener {
+                listener.onVideo(post)
             }
         }
     }
