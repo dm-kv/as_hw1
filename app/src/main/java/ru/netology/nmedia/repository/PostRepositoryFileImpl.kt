@@ -15,8 +15,7 @@ class PostRepositoryFileImpl(private val context: Context): PostRepository {
             field = value
             sync()
         }
-    private var nextId = posts.first().id
-
+    private var nextId = (posts.maxByOrNull { it.id }?.id ?: 0L) + 1L
     private val data = MutableLiveData(posts)
 
     override fun get(): LiveData<List<Post>> = data
