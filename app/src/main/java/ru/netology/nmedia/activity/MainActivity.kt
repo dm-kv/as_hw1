@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     val chooser = Intent.createChooser(intent, getString(R.string.description_post_share))
                     startActivity(chooser)
+                    viewModel.shareById(post.id)
                 }
 
                 override fun onVideo(post: Post) {
